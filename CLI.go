@@ -6,8 +6,18 @@ import (
 	"strings"
 )
 
-func ShowTree(w io.Writer, tree Tree) {
-	fmt.Fprintf(w, "%s\n", tree.Name)
+const ColorStringRootName = "\u001b[34;1m%s\u001b[0m\n"
+const StringRootName = "%s\n"
+
+var Color bool
+
+func ShowTree(w io.Writer, tree Tree, color bool) {
+	Color = color
+	if Color {
+		fmt.Fprintf(w, ColorStringRootName, tree.Name)
+	} else {
+		fmt.Fprintf(w, StringRootName, tree.Name)
+	}
 	for _, sbtr := range tree.SubTree {
 		rec(w, sbtr, 0)
 	}
@@ -15,11 +25,15 @@ func ShowTree(w io.Writer, tree Tree) {
 
 func rec(w io.Writer, tree Tree, depth int) {
 	if tree.IsDir {
-		fmt.Fprintf(w, "%s|-- %s\n", strings.Repeat("|   ", depth), tree.Name)
+		if Color {
+			fmt.Fprintf(w, "%s├── "+ColorStringRootName, strings.Repeat("    ", depth), tree.Name)
+		} else {
+			fmt.Fprintf(w, "%s├── "+StringRootName, strings.Repeat("    ", depth), tree.Name)
+		}
 		for _, sbtr := range tree.SubTree {
 			rec(w, sbtr, depth+1)
 		}
 	} else {
-		fmt.Fprintf(w, "%s|-- %s\n", strings.Repeat("|   ", depth), tree.Name)
+		fmt.Fprintf(w, "%s├── %s\n", strings.Repeat("    ", depth), tree.Name)
 	}
 }
