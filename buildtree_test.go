@@ -39,7 +39,7 @@ func TestGoShowTree(t *testing.T) {
 
 	for _, test := range cases {
 		t.Run(test.testName, func(t *testing.T) {
-			tree := goshowtree.BuildTree(test.testFS)
+			tree := goshowtree.BuildTree(test.testFS, ".")
 			// Model based testing
 			got := fmt.Sprintf("%+v", tree)
 			want := fmt.Sprintf("%+v", test.want)

@@ -8,9 +8,9 @@ type Tree struct {
 	IsDir   bool
 }
 
-func BuildTree(fsys fs.FS) Tree {
+func BuildTree(fsys fs.FS, folderName string) Tree {
 	return Tree{
-		Name:    ".",
+		Name:    folderName,
 		SubTree: parseFolder(fsys),
 		IsDir:   true,
 	}

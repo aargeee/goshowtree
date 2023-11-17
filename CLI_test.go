@@ -42,7 +42,7 @@ func TestCLI(t *testing.T) {
 		want :=
 			`.
 |-- dir1
-|   |-- file2
+    |-- file2
 `
 		got := out.String()
 		if want != got {
@@ -68,4 +68,26 @@ func TestCLI(t *testing.T) {
 			t.Errorf("got \n%s\nwanted\n%s", got, want)
 		}
 	})
+	//	t.Run("only nested folders print", func(t *testing.T) {
+	//		out := &bytes.Buffer{}
+	//		tree := tree_with_only_folders
+	//		goshowtree.ShowTree(out, tree)
+	//		want :=
+	//			`.
+	//
+	// |-- dir1
+	//
+	//	|-- file1
+	//	|-- file2
+	//	|-- dir2
+	//	    |-- file3
+	//	    |-- file4
+	//
+	// `
+	//
+	//		got := out.String()
+	//		if want != got {
+	//			t.Errorf("got \n%s\nwanted\n%s", got, want)
+	//		}
+	//	})
 }
