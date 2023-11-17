@@ -13,5 +13,5 @@ func main() {
 	}
 	fileSystem := os.DirFS(dir)
 	tree := goshowtree.BuildTree(fileSystem, dir)
-	goshowtree.ShowTree(os.Stdout, tree)
+	goshowtree.ShowTree(os.Stdout, tree, true)
 }
