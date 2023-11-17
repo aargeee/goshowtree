@@ -1,7 +1,7 @@
 package goshowtree_test
 
 import (
-	"reflect"
+	"fmt"
 	"testing"
 	"testing/fstest"
 
@@ -17,144 +17,34 @@ func TestGoShowTree(t *testing.T) {
 	}{
 		{
 			testName: "fs having one file",
-			testFS: fstest.MapFS{
-				"mydata": {Data: []byte("HI")},
-			},
-			want: goshowtree.Tree{
-				Name: ".",
-				SubTree: []goshowtree.Tree{
-					{
-						Name:    "mydata",
-						SubTree: []goshowtree.Tree{},
-						IsDir:   false,
-					},
-				},
-				IsDir: true,
-			},
-		},
-		{
-			testName: "fs having one file with different name",
-			testFS: fstest.MapFS{
-				"somedifferentName": {Data: []byte("")},
-			},
-			want: goshowtree.Tree{
-				Name: ".",
-				SubTree: []goshowtree.Tree{
-					{
-						Name:    "somedifferentName",
-						SubTree: []goshowtree.Tree{},
-						IsDir:   false,
-					},
-				},
-				IsDir: true,
-			},
+			testFS:   fs_one_file,
+			want:     tree_one_file,
 		},
 		{
 			testName: "fs having two files",
-			testFS: fstest.MapFS{
-				"file1": {Data: []byte("")},
-				"file2": {Data: []byte("")},
-			},
-			want: goshowtree.Tree{
-				Name: ".",
-				SubTree: []goshowtree.Tree{
-					{
-						Name:    "file1",
-						SubTree: []goshowtree.Tree{},
-						IsDir:   false,
-					},
-					{
-						Name:    "file2",
-						SubTree: []goshowtree.Tree{},
-						IsDir:   false,
-					},
-				},
-				IsDir: true,
-			},
+			testFS:   fs_two_files,
+			want:     tree_two_files,
 		},
 		{
 			testName: "fs having one directory with one file",
-			testFS: fstest.MapFS{
-				"dir1/file2": {Data: []byte{}},
-			},
-			want: goshowtree.Tree{
-				Name: ".",
-				SubTree: []goshowtree.Tree{
-					{
-						Name: "dir1",
-						SubTree: []goshowtree.Tree{
-							{
-								Name:    "file2",
-								SubTree: []goshowtree.Tree{},
-								IsDir:   false,
-							},
-						},
-						IsDir: true,
-					},
-				},
-				IsDir: true,
-			},
+			testFS:   fs_one_dir,
+			want:     tree_one_dir,
 		},
 		{
 			testName: "fs having two directory with two file each",
-			testFS: fstest.MapFS{
-				"file0":      {Data: []byte{}},
-				"dir1/file1": {Data: []byte{}},
-				"dir1/file2": {Data: []byte{}},
-				"dir2/file3": {Data: []byte{}},
-				"dir2/file4": {Data: []byte{}},
-			},
-			want: goshowtree.Tree{
-				Name: ".",
-				SubTree: []goshowtree.Tree{
-					{
-						Name: "dir1",
-						SubTree: []goshowtree.Tree{
-							{
-								Name:    "file1",
-								SubTree: []goshowtree.Tree{},
-								IsDir:   false,
-							},
-							{
-								Name:    "file2",
-								SubTree: []goshowtree.Tree{},
-								IsDir:   false,
-							},
-						},
-						IsDir: true,
-					},
-					{
-						Name: "dir2",
-						SubTree: []goshowtree.Tree{
-							{
-								Name:    "file3",
-								SubTree: []goshowtree.Tree{},
-								IsDir:   false,
-							},
-							{
-								Name:    "file4",
-								SubTree: []goshowtree.Tree{},
-								IsDir:   false,
-							},
-						},
-						IsDir: true,
-					},
-					{
-						Name:    "file0",
-						SubTree: []goshowtree.Tree{},
-						IsDir:   false,
-					},
-				},
-				IsDir: true,
-			},
+			testFS:   fs_multiple_files,
+			want:     tree_multiple_files,
 		},
 	}
 
 	for _, test := range cases {
 		t.Run(test.testName, func(t *testing.T) {
-			got := goshowtree.BuildTree(test.testFS)
-			if !reflect.DeepEqual(got, test.want) {
-				t.Errorf("got %+v != %+v", got, test.want)
+			tree := goshowtree.BuildTree(test.testFS)
+			// Model based testing
+			got := fmt.Sprintf("%+v", tree)
+			want := fmt.Sprintf("%+v", test.want)
+			if got != want {
+				t.Errorf("got\n%s\nwant\n%s\n", got, want)
 			}
 		})
 	}
