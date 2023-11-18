@@ -1,11 +1,10 @@
-# Product Name
-> Short blurb about what your product does.
+# GoShowTree
+> CLI tool to view your directory.
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
+[![Go Version](https://img.shields.io/badge/Go-v1.17-blue.svg)](https://golang.org/doc/go1.17) <!-- TODO : get actual go version -->
+[![Platform](https://img.shields.io/badge/Platform-Linux-green.svg?style=flat-square)](https://travis-ci.org/username/repository)
 
-One to two paragraph statement about your product and what it does.
+GoShowTree allows you to specify any directory and recursively view all the contents inside the directory in form of a tree.
 
 ![](header.png)
 
@@ -14,44 +13,32 @@ One to two paragraph statement about your product and what it does.
 OS X & Linux:
 
 ```sh
-npm install my-crazy-module --save
 ```
+<!-- TODO : linux installation script -->
 
 Windows:
 
-```sh
-edit autoexec.bat
-```
+![Build Status](https://img.shields.io/badge/Build-Not%20Available-red.svg?style=flat-square)
 
 ## Usage example
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+<!-- TODO : usage example to be done in VM -->
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
 ## Development setup
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+<!-- TODO : dev setup script adn test script -->
 
 ```sh
-make install
-npm test
 ```
 
 ## Release History
-
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
 * 0.1.0
     * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
+    * CHANGE: Built and tested `BuildTree` and `ShowTree` functions. 
 * 0.0.1
-    * Work in progress
+    * Started Project
 
 ## Meta
 
@@ -63,7 +50,7 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork it (<https://github.com/Rahul-NITD/goshowtree/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
