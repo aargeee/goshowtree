@@ -6,8 +6,6 @@
 
 GoShowTree allows you to specify any directory and recursively view all the contents inside the directory in form of a tree.
 
-![](header.png)
-
 ## Installation
 
 OS X & Linux:
