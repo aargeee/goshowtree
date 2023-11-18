@@ -26,8 +26,11 @@ Windows:
 ## Usage example
 
 <!-- TODO : usage example to be done in VM -->
-
-_For more examples and usage, please refer to the [Wiki][wiki]._
+```sh
+# go to the bin folder
+./goshowtree <path>
+```
+![Screenshot from 2023-11-18 14-53-20](https://github.com/Rahul-NITD/goshowtree/assets/96250420/1132993b-299b-4caf-b5d7-47fa7636e55b)
 
 ## Development setup
 
