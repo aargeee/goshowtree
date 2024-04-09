@@ -28,7 +28,7 @@ Windows:
 # go to the bin folder
 ./goshowtree <path>
 ```
-![Screenshot from 2023-11-18 14-53-20](https://github.com/Rahul-NITD/goshowtree/assets/96250420/1132993b-299b-4caf-b5d7-47fa7636e55b)
+![Screenshot from 2023-11-18 14-53-20](https://github.com/aargeee/goshowtree/assets/96250420/1132993b-299b-4caf-b5d7-47fa7636e55b)
 
 ## Development setup
 
@@ -51,12 +51,12 @@ go test
     * Started Project
 
 ## Meta
-[https://github.com/Rahul-NITD](https://github.com/Rahul-NITD)
+[https://github.com/Rahul-NITD](https://github.com/aargeee)
 
 <!--
 ## Contributing
 
-1. Fork it (<https://github.com/Rahul-NITD/goshowtree/fork>)
+1. Fork it (<https://github.com/aargeee/goshowtree/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
