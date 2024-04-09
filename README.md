@@ -11,7 +11,7 @@ GoShowTree allows you to specify any directory and recursively view all the cont
 OS X & Linux:
 
 ```sh
-git clone github.com/Rahul-NITD/goshowtree
+git clone github.com/aargeee/goshowtree
 cd goshowtree
 sh build.sh
 cd bin
@@ -34,7 +34,7 @@ Windows:
 
 To install the development setup
 ```sh
-git clone https://github.com/Rahul-NITD/goshowtree
+git clone https://github.com/aargeee/goshowtree
 cd goshowtree
 sh build_dev.sh
 ```
@@ -51,7 +51,7 @@ go test
     * Started Project
 
 ## Meta
-[https://github.com/Rahul-NITD](https://github.com/aargeee)
+[https://github.com/aargeee](https://github.com/aargeee)
 
 <!--
 ## Contributing
